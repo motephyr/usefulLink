@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 #self
 gem 'devise'
 gem "anjlab-bootstrap-rails", "2.3.1.2", :require => "bootstrap-rails"
+gem "bootstrap_helper", ">= 4.2.2.1"
+gem 'railties'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
