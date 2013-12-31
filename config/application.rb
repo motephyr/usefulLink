@@ -22,4 +22,4 @@ module RailsUsefulLink
   end
 end
 
-SITE_NAME = "YOUR SITE NAME"
+SITE_NAME = "YOUR SITE NAME" 

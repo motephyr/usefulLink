@@ -1,0 +1,12 @@
+defaults: &defaults
+  app_name: "railsusefullink"
+  domain: "http://railsusefullink.dev/"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
