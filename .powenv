@@ -1,0 +1,12 @@
+export PATH ; PATH="/Users/motephyr/.rvm/gems/ruby-2.0.0-p353/bin:/Users/motephyr/.rvm/gems/ruby-2.0.0-p353@global/bin:/Users/motephyr/.rvm/rubies/ruby-2.0.0-p353/bin:/Users/motephyr/.rvm/bin:$PATH"
+export rvm_env_string ; rvm_env_string='ruby-2.0.0-p353'
+export rvm_path ; rvm_path='/Users/motephyr/.rvm'
+export rvm_ruby_string ; rvm_ruby_string='ruby-2.0.0-p353'
+unset rvm_gemset_name
+export RUBY_VERSION ; RUBY_VERSION='ruby-2.0.0-p353'
+export GEM_HOME ; GEM_HOME='/Users/motephyr/.rvm/gems/ruby-2.0.0-p353'
+export GEM_PATH ; GEM_PATH='/Users/motephyr/.rvm/gems/ruby-2.0.0-p353:/Users/motephyr/.rvm/gems/ruby-2.0.0-p353@global'
+export MY_RUBY_HOME ; MY_RUBY_HOME='/Users/motephyr/.rvm/rubies/ruby-2.0.0-p353'
+export IRBRC ; IRBRC='/Users/motephyr/.rvm/rubies/ruby-2.0.0-p353/.irbrc'
+unset MAGLEV_HOME
+unset RBXOPT
