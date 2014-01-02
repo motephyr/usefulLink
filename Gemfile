@@ -7,6 +7,18 @@ gem "bootstrap_helper", ">= 4.2.2.1"
 gem "settingslogic"
 gem "open_graph_helper"
 
+group :development do
+  gem "capistrano"
+  gem "capistrano-ext"
+  gem "cape"
+  gem "binding_of_caller"
+  gem "better_errors", "~> 0.9.0"
+  gem "magic_encoding"
+  gem "annotate"
+  gem "pry-nav"
+  gem "pry-remote"
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
