@@ -2,18 +2,20 @@
         <h1>Rails 資源連結</h1>
         <p>台灣學習Rails資源入口</p>
       </div>
-      <%= link_to '新增網站', new_post_path %>
-      <table>
-        <tr>
-          <th>標題<th>
-          <th>描述<th>
-          <th>作者<th>
-        </tr>
-      <% @posts.each do |post| %>
-      	<tr>
-      		<th><%= post.title %><th>
-      		<th><%= post.content %><th>
-      		<th><%= post.author.email %><th>
-      	</tr>
-      <% end %>
-      </table>
+      <div>
+	      <%= link_to('新增網站',new_post_path, :class => "btn btn-large btn-info") %>
+	      <table class="table">
+	        <tr>
+	          <th>標題<th>
+	          <th>描述<th>
+	          <th>作者<th>
+	        </tr>
+	      <% @posts.each do |post| %>
+	      	<tr>
+	      		<th><%= link_to(post.title, post_path(post)) %><th>
+	      		<th><%= post.content %><th>
+	      		<th><%= post.author.email %><th>
+	      	</tr>
+	      <% end %>
+	      </table>
+      </div>
