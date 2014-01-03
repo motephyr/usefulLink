@@ -9,6 +9,7 @@ gem "open_graph_helper"
 gem 'acts_as_commentable'
 
 group :development do
+  gem "guard-livereload"
   gem "capistrano"
   gem "capistrano-ext"
   gem "cape"
