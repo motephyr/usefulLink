@@ -1,11 +1,23 @@
-<p>
-	<strong><%=@post.title %></strong>
-</p>
-<p>
-  <%= @post.url %>
-</p>
-<p>
-  <%= @post.content %>
-</p>
 
-<%= link_to '回列表', posts_path %>
+    <div class="row">
+    	<div class="span1">標題</div>
+    	<div class="span1"><%=@post.title %></div>
+    </div>
+    <div class="row">
+    	<div class="span1">連結</div>
+    	<div class="span1"><%=@post.url %></div>
+    </div>
+    <div class="row">
+    	<div class="span1">內容</div>
+    	<div class="span1"><%=@post.content %></div>
+    </div>
+
+<h2>回應</h2>
+<div class="page-header"></div>
+
+<% @post.comments.each do |comment| %>
+  <h3><%= comment.author.email %>表示</h3>
+  <p><%= comment.comment %></p>
+<% end %>
+
+<%= link_to('回列表',posts_path, :class => "btn btn-large btn-info") %>

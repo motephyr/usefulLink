@@ -6,6 +6,7 @@ gem "anjlab-bootstrap-rails", "2.3.1.2", :require => "bootstrap-rails"
 gem "bootstrap_helper", ">= 4.2.2.1"
 gem "settingslogic"
 gem "open_graph_helper"
+gem 'acts_as_commentable'
 
 group :development do
   gem "capistrano"

@@ -12,7 +12,9 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	@post.author = current_user
+  	
   	if @post.save
+        comments = @post.comments.create(:title => "First comment.", :comment => "This is the first comment.", :author => current_user)
   		redirect_to posts_path
   	else
   		render :new
@@ -21,6 +23,8 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find(params[:id])
+
+    comments = @post.comments.recent.limit(10)
   end
 
   def post_params
