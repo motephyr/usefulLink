@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   	@post.author = current_user
   	
   	if @post.save
-        comments = @post.comments.create(:title => "First comment.", :comment => "This is the first comment.", :author => current_user)
+        
   		redirect_to posts_path
   	else
   		render :new
@@ -25,9 +25,23 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
 
     comments = @post.comments.recent.limit(10)
+    @comment = Comment.new
+  end
+
+  def create_comment
+    @post = Post.find(params[:id])
+    comment = @post.comments.create(comment_params)
+    comment.author = current_user
+    comment.save
+    
+    redirect_to post_path(@post)
   end
 
   def post_params
     params.require(:post).permit(:url,:title,:content)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:comment)
   end
 end

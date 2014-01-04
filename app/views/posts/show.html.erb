@@ -1,23 +1,45 @@
+<div class="pull-right">
+<%= link_to('back',posts_path, :class => "btn btn-large btn-info") %>
+</div>
 
-    <div class="row">
-    	<div class="span1">標題</div>
-    	<div class="span1"><%=@post.title %></div>
+<div>
+  <h1 align="center"><%=@post.title %></h1>
+  <p align="center">中文界 Ruby on Rails 最強實戰教材，沒有之一！</p>
+  
+  <div class="row">
+    <div class="span2">
+      <%= image_tag "img.png",  {height: 100,width:100}  %>
     </div>
-    <div class="row">
-    	<div class="span1">連結</div>
-    	<div class="span1"><%=@post.url %></div>
-    </div>
-    <div class="row">
-    	<div class="span1">內容</div>
-    	<div class="span1"><%=@post.content %></div>
-    </div>
+    <div class="span10">
+      <h5><%= link_to(@post.title,'http://'+@post.url) %></h5>
+      <p>
+        <%=@post.content %>
+      </p>
+  </div>
+  </div>
+</div>
 
-<h2>回應</h2>
-<div class="page-header"></div>
+<h2 align="center">推薦原因</h2>
+<div>
+  <hr></hr>
+  
+  <div>
+    <h4>推文留言</h4>
+  </div>
+  <hr></hr>
+  <% @post.comments.each do |comment| %>
+    <table>
+      <tr><%= comment.author.email %> 表示：</tr>
+      <td>
+        <%= comment.comment %>
+      </td>
+    </table>
+  <% end %>
+  <div>
+    <%= form_for(@comment,:url => post_path(@post)+'/comments/create') do |f|  %>
+    <%= f.text_area :comment %>
+    <%= f.submit "留言" %>
+    <% end %>
+  </div>
+</div> 
 
-<% @post.comments.each do |comment| %>
-  <h3><%= comment.author.email %>表示</h3>
-  <p><%= comment.comment %></p>
-<% end %>
-
-<%= link_to('回列表',posts_path, :class => "btn btn-large btn-info") %>
