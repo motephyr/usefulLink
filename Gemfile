@@ -7,6 +7,9 @@ gem "bootstrap_helper", ">= 4.2.2.1"
 gem "settingslogic"
 gem "open_graph_helper"
 gem 'acts_as_commentable'
+gem "omniauth"
+gem "omniauth-facebook"
+gem "auto-facebook", "0.42"
 
 group :development do
   gem "guard-livereload"
@@ -17,6 +20,7 @@ group :development do
   gem "better_errors", "~> 0.9.0"
   gem "magic_encoding"
   gem "annotate"
+  gem "powder"
   gem "pry-nav"
   gem "pry-remote"
 end

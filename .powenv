@@ -1,12 +1,21 @@
-export PATH ; PATH="/Users/motephyr/.rvm/gems/ruby-2.0.0-p353/bin:/Users/motephyr/.rvm/gems/ruby-2.0.0-p353@global/bin:/Users/motephyr/.rvm/rubies/ruby-2.0.0-p353/bin:/Users/motephyr/.rvm/bin:$PATH"
-export rvm_env_string ; rvm_env_string='ruby-2.0.0-p353'
-export rvm_path ; rvm_path='/Users/motephyr/.rvm'
-export rvm_ruby_string ; rvm_ruby_string='ruby-2.0.0-p353'
-unset rvm_gemset_name
-export RUBY_VERSION ; RUBY_VERSION='ruby-2.0.0-p353'
-export GEM_HOME ; GEM_HOME='/Users/motephyr/.rvm/gems/ruby-2.0.0-p353'
-export GEM_PATH ; GEM_PATH='/Users/motephyr/.rvm/gems/ruby-2.0.0-p353:/Users/motephyr/.rvm/gems/ruby-2.0.0-p353@global'
-export MY_RUBY_HOME ; MY_RUBY_HOME='/Users/motephyr/.rvm/rubies/ruby-2.0.0-p353'
-export IRBRC ; IRBRC='/Users/motephyr/.rvm/rubies/ruby-2.0.0-p353/.irbrc'
-unset MAGLEV_HOME
-unset RBXOPT
+# detect `$rvm_path`
+if [ -z "${rvm_path:-}" ] && [ -x "${HOME:-}/.rvm/bin/rvm" ]
+then rvm_path="${HOME:-}/.rvm"
+fi
+if [ -z "${rvm_path:-}" ] && [ -x "/usr/local/rvm/bin/rvm" ]
+then rvm_path="/usr/local/rvm"
+fi
+
+# load environment of current project ruby
+if
+[ -n "${rvm_path:-}" ] &&
+[ -x "${rvm_path:-}/bin/rvm" ] &&
+rvm_project_environment=`"${rvm_path:-}/bin/rvm" . do rvm env --path 2>/dev/null` &&
+[ -n "${rvm_project_environment:-}" ] &&
+[ -s "${rvm_project_environment:-}" ]
+then
+echo "RVM loading: ${rvm_project_environment:-}"
+\. "${rvm_project_environment:-}"
+else
+echo "RVM project not found at: $PWD"
+fi

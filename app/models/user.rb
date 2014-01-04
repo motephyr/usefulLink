@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
 
+  
+  extend OmniauthCallbacks
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 end
