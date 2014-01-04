@@ -10,6 +10,7 @@ gem 'acts_as_commentable'
 gem "omniauth"
 gem "omniauth-facebook"
 gem "auto-facebook", "0.42"
+gem 'pg'
 
 group :development do
   gem "guard-livereload"
@@ -25,11 +26,15 @@ group :development do
   gem "pry-remote"
 end
 
+group :test do
+  gem 'sqlite3'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

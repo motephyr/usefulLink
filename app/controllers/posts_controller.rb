@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :login_required, :only => [:new, :create, :edit,:update,:destroy,:create_comment]
 
   def index
   	@page_title = "首頁"
