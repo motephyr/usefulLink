@@ -1,0 +1,28 @@
+基本功能:
+ ✔ 使用者可以登入 / 登出 @done (14-01-05 16:36)
+ ✔ 使用者可以使用 Facebook 登入 https://github.com/xdite/auto-facebook @done (14-01-05 16:36)
+發表Link:
+ ☐ 使用者可以填入網址，網站自動抓標題和簡介 http://embed.ly/docs/tutorials/jquery_preview
+ ✔ 使用者可以在每則網址下面留言 https://github.com/jackdempsey/acts_as_commentable @done (14-01-05 16:44)
+ ☐ 作者和討論者可以在有人留言時，就收到留言更新 http://mailgun.com
+RSS:
+ ☐ 使用者可以訂閱 RSS http://stackoverflow.com/questions/3951235/how-do-i-make-an-rss-atom-feed-in-rails-3
+Link 分類:
+ ☐ Link 必須被分類 : Gem / 新聞 / 教學 / 討論
+使用者資訊:
+ ☐ 使用者可以更新自己個人資訊
+ ☐ 使用者可以更改密碼
+ ☐ 使用者可以放上自己 Github 網址
+ ☐ 使用者的圖像是使用 http://gravatar.com https://github.
+訂閱電子報:
+ ☐ Link 必須紀錄點擊數
+ ☐ 每週自動整理點擊數高的連結寄給訂閱者
+Deploy:
+ ✔ Deploy 上 Heroku @done (14-01-05 16:45)
+ ✔ 程式碼放上 Github @done (14-01-05 16:45)
+ 每週二晚上 Code Review
+額外做的事:
+ ☐ html,css處理
+ ☐ .gitignore對於database.yml和secre
+ ✔ 使用postgresql做資料庫 @done (14-01-05 16:46)
+ ☐ 紀綠 acts_as_commentable的使用方式
