@@ -23,6 +23,6 @@ Deploy:
  每週二晚上 Code Review
 額外做的事:
  ☐ html,css處理
- ☐ .gitignore對於database.yml和secre
+ ☐ .gitignore對於database.yml和secret_token.rb的處理
  ✔ 使用postgresql做資料庫 @done (14-01-05 16:46)
- ☐ 紀綠 acts_as_commentable的使用方式
+ ✔ 紀綠 acts_as_commentable的使用方式 @done (14-01-05 21:52)

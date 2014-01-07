@@ -3,6 +3,7 @@ defaults: &defaults
   domain: "http://railsusefullink.dev/"
   facebook_app_id: "786324161384120"
   facebook_secret: "ca4e679ecaf31bbb55085f822e548afd"
+  embedly_key: "6e70a5a64f0e4368a5e5db62266d6694"
 
 development:
   <<: *defaults

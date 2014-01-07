@@ -4,7 +4,7 @@
 
 <div>
   <h1 align="center"><%=@post.title %></h1>
-  <p align="center">中文界 Ruby on Rails 最強實戰教材，沒有之一！</p>
+  <p align="center"><%=@post.description %></p>
   
   <div class="row">
     <div class="span2">
@@ -13,7 +13,7 @@
     <div class="span10">
       <h5><%= link_to(@post.title,'http://'+@post.url) %></h5>
       <p>
-        <%=@post.content %>
+        <%=@post.description %>
       </p>
   </div>
   </div>

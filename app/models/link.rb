@@ -1,13 +1,13 @@
-class Post < ActiveRecord::Base
-	acts_as_commentable
-	belongs_to :author, :class_name => "User", :foreign_key => :user_id
-
+class Link < ActiveRecord::Base
   scope :recent, order("id DESC")
+
+  belongs_to :post
+  belongs_to :user
 
   after_create :update_info
 
   def update_info
-    update_from_embedly
+    delay.update_from_embedly
   end
 
   def update_from_embedly
@@ -22,6 +22,9 @@ class Post < ActiveRecord::Base
     response_data = embedly_objs[0].marshal_dump
 
     link.title = response_data[:title]
+    link.link_type = response_data[:type]
+    link.author_name = response_data[:author_name]
+    link.author_url = response_data[:author_url]
     link.provider_name = response_data[:provider_name]
     link.provider_url = response_data[:provider_url]
     link.description = response_data[:description]
@@ -30,3 +33,5 @@ class Post < ActiveRecord::Base
     link.save
   end
 end
+
+

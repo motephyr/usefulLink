@@ -13,7 +13,7 @@
 	      <% @posts.each do |post| %>
 	      	<tr>
 	      		<th><%= link_to(post.title, post_path(post)) %><th>
-	      		<th><%= post.content %><th>
+	      		<th><%= post.description %><th>
 	      		<th><%= post.author.email %><th>
 	      	</tr>
 	      <% end %>

@@ -10,7 +10,8 @@ gem 'acts_as_commentable'
 gem "omniauth"
 gem "omniauth-facebook"
 gem "auto-facebook", "0.42"
-gem 'pg'
+gem "pg"
+gem "embedly"
 
 group :production do
   gem 'rails_12factor'

@@ -1,8 +1,51 @@
 <%#= javascript_include_tag "posts/new" %>
+<script src="http://cdn.embed.ly/jquery.embedly-3.0.5.min.js" type="text/javascript"></script>
+<script src="http://cdn.embed.ly/jquery.preview-0.3.2.min.js" type="text/javascript"></script>
+<script src="http://embedly.github.io/jquery-preview/lib/mustache.js" type="text/javascript"></script>
+<script src="http://embedly.github.io/jquery-preview/lib/underscore.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://cdn.embed.ly/jquery.preview-0.3.2.css" />
 <h1>新增網站</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
-<%= link_to '回上一頁', posts_path %>
+<%= form_for @post,as: :post,html: {  id: "preview_form" } do |f| %>
+
+  <input id="id_url" type="text" name="post[url]"/>
+  <button class="button">預覽</button>
+  <div class="selector-wrapper"></div>
+
+<% end %>
+<script>
+
+      $('#id_url').preview({key: '6e70a5a64f0e4368a5e5db62266d6694'}) // Sign up for a key: http://embed.ly/pricing
+        .on('loading', function(){
+          $(this).prop('disabled', true);
+          $('form .button').html('<i class="icon-spinner icon-spin"></i>');
+        }).on('loaded', function(){
+          $(this).prop('disabled', false);
+          $('form .button').text('儲存資料');
+        })
+
+      $('form .button').on('click', function(){
+        var preview = $('#id_url').data('preview');
+
+        // add the preview data to the form if you are into that sort of thing.
+
+      });
+
+      $('#preview_form').on('submit', function(){
+
+        // Close the selector
+        //$('#id_url').trigger('close');
+        //$('#id_url').val('');
+        if($('.selector-wrapper').html() != ''){
+
+          return true;
+        }else{
+          return false;
+        }
+      });
+    
+</script>
 
   
