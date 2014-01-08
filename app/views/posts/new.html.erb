@@ -11,7 +11,7 @@
 <%= form_for @post,as: :post,html: {  id: "preview_form" } do |f| %>
 
   <input id="id_url" type="text" name="post[url]"/>
-  <button class="button">預覽</button>
+  <%= f.submit "預覽" %>
   <div class="selector-wrapper"></div>
 
 <% end %>
@@ -20,21 +20,13 @@
       $('#id_url').preview({key: '6e70a5a64f0e4368a5e5db62266d6694'}) // Sign up for a key: http://embed.ly/pricing
         .on('loading', function(){
           $(this).prop('disabled', true);
-          $('form .button').html('<i class="icon-spinner icon-spin"></i>');
+          $('[name="commit"]').html('<i class="icon-spinner icon-spin"></i>');
         }).on('loaded', function(){
           $(this).prop('disabled', false);
-          $('form .button').text('儲存資料');
+          $('[name="commit"]').val('儲存資料');
         })
 
-      $('form .button').on('click', function(){
-        var preview = $('#id_url').data('preview');
-
-        // add the preview data to the form if you are into that sort of thing.
-
-      });
-
       $('#preview_form').on('submit', function(){
-
         // Close the selector
         //$('#id_url').trigger('close');
         //$('#id_url').val('');
@@ -42,6 +34,7 @@
 
           return true;
         }else{
+          var preview = $('#id_url').data('preview');
           return false;
         }
       });

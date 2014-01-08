@@ -3,12 +3,9 @@
 </div>
 
 <div>
-  <h1 align="center"><%=@post.title %></h1>
-  <p align="center"><%=@post.description %></p>
-  
   <div class="row">
     <div class="span2">
-      <%= image_tag "img.png",  {height: 100,width:100}  %>
+      <%= image_tag @post.thumbnail_url,  {height: 100,width:100}  %>
     </div>
     <div class="span10">
       <h5><%= link_to(@post.title,'http://'+@post.url) %></h5>

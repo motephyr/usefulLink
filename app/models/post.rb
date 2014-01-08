@@ -22,6 +22,7 @@ class Post < ActiveRecord::Base
     response_data = embedly_objs[0].marshal_dump
 
     link.title = response_data[:title]
+    link.favicon_url = response_data[:favicon_url]
     link.provider_name = response_data[:provider_name]
     link.provider_url = response_data[:provider_url]
     link.description = response_data[:description]
