@@ -14,7 +14,7 @@
 	      	<tr>
 	      		<th><%= link_to(post.title, post_path(post)) %><th>
 	      		<th><%= post.description %><th>
-	      		<th><%= post.author.name %><th>
+	      		<th><%= gravatar_image_tag(post.author.email.gsub('spam', 'mdeering'), :alt => post.author.name,:gravatar => {:size =>15})  %><%= post.author.name %><th>
 	      	</tr>
 	      <% end %>
 	      </table>

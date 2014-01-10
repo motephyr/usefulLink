@@ -13,7 +13,7 @@ Link 分類:
  ☐ 使用者可以更新自己個人資訊
  ✔ 使用者可以更改密碼 @done (14-01-10 00:31)
  ✔ 使用者可以放上自己 Github 網址 @done (14-01-10 21:07)
- ☐ 使用者的圖像是使用 http://gravatar.com https://github.com/mdeering/gravatar_image_tag
+ ✔ 使用者的圖像是使用 http://gravatar.com https://github.com/mdeering/gravatar_image_tag @done (14-01-11 02:23)
 訂閱電子報:
  ☐ Link 必須紀錄點擊數
  ☐ 每週自動整理點擊數高的連結寄給訂閱者
