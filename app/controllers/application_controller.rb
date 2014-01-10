@@ -7,8 +7,11 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_in) << :name
+    devise_parameter_sanitizer.for(:sign_in) << :github_link
     devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << :github_link
     devise_parameter_sanitizer.for(:account_update) << :name
+    devise_parameter_sanitizer.for(:account_update) << :github_link
   end
   
   protect_from_forgery with: :exception

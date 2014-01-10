@@ -11,8 +11,8 @@ Link 分類:
  ☐ Link 必須被分類 : Gem / 新聞 / 教學 / 討論
 使用者資訊:
  ☐ 使用者可以更新自己個人資訊
- ☐ 使用者可以更改密碼
- ☐ 使用者可以放上自己 Github 網址
+ ✔ 使用者可以更改密碼 @done (14-01-10 00:31)
+ ✔ 使用者可以放上自己 Github 網址 @done (14-01-10 21:07)
  ☐ 使用者的圖像是使用 http://gravatar.com https://github.com/mdeering/gravatar_image_tag
 訂閱電子報:
  ☐ Link 必須紀錄點擊數
