@@ -33,9 +33,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     comment = @post.comments.create(comment_params)
     comment.author = current_user
-    comment.save
-    
-    redirect_to post_path(@post)
+    if comment.save
+
+      UserMailer.confirm(@post.author.email, comment.comment).deliver
+      redirect_to post_path(@post)
+    else 
+       render :action => :show
+    end
   end
 
   def post_params
