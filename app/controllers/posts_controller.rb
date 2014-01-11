@@ -34,8 +34,13 @@ class PostsController < ApplicationController
     comment = @post.comments.create(comment_params)
     comment.author = current_user
     if comment.save
-
-      UserMailer.confirm(@post.author.email, comment.comment).deliver
+      #取得所有人的email 去掉重覆的和自已的
+      emails = @post.comments.map{ |x| x.author.email}
+      emails_add_posts = emails + [@post.author.email]
+      uniq_emails = emails_add_posts.uniq{|x| x}
+      uniq_emails_delete_self = uniq_emails - [comment.author.email]
+      
+      UserMailer.confirm(uniq_emails_delete_self, comment.comment).deliver
       redirect_to post_path(@post)
     else 
        render :action => :show

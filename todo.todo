@@ -4,7 +4,9 @@
 發表Link:
  ✔ 使用者可以填入網址，網站自動抓標題和簡介 http://embed.ly/docs/tutorials/jquery_preview @done (14-01-09 19:05)
  ✔ 使用者可以在每則網址下面留言 https://github.com/jackdempsey/acts_as_commentable @done (14-01-05 16:44)
- ☐ 作者和討論者可以在有人留言時，就收到留言更新 http://mailgun.com
+ 可以在有人留言時，就收到留言更新 http://mailgun.com:
+ ✔ 作者 @done (14-01-11 03:43)
+ ✔ 討論者 @done (14-01-12 00:28)
 RSS:
  ☐ 使用者可以訂閱 RSS http://stackoverflow.com/questions/3951235/how-do-i-make-an-rss-atom-feed-in-rails-3
 Link 分類:
