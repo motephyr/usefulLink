@@ -7,10 +7,12 @@
  可以在有人留言時，就收到留言更新 http://mailgun.com:
  ✔ 作者 @done (14-01-11 03:43)
  ✔ 討論者 @done (14-01-12 00:28)
+    ☐ 程式優化
 RSS:
  ☐ 使用者可以訂閱 RSS http://stackoverflow.com/questions/3951235/how-do-i-make-an-rss-atom-feed-in-rails-3
 Link 分類:
- ☐ Link 必須被分類 : Gem / 新聞 / 教學 / 討論
+ ✔ Link 必須被分類 : Gem / 新聞 / 教學 / 討論 @done (14-01-13 00:51)
+   ☐ 程式優化
 使用者資訊:
  ☐ 使用者可以更新自己個人資訊
  ✔ 使用者可以更改密碼 @done (14-01-10 00:31)

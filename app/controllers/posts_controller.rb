@@ -13,7 +13,11 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	@post.author = current_user
-  	
+
+    #設定類別
+    c = Category.where( :name => params[:category])
+    @post.categories << c
+
   	if @post.save
         
   		redirect_to posts_path

@@ -9,7 +9,10 @@
 <%#= render 'form' %>
 
 <%= form_for @post,as: :post,html: {  id: "preview_form" } do |f| %>
-
+  <p>
+  <%= f.label :類別 %>
+  <%= select_tag(:category, options_for_select(['Gem','新聞','教學','討論'])) %>
+  </p>
   <input id="id_url" type="text" name="post[url]"/>
   <%= f.submit "預覽" %>
   <div class="selector-wrapper"></div>
