@@ -28,6 +28,9 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find(params[:id])
+    
+    #點擊數+1
+    Post.increment_counter(:click_count, params[:id])
 
     comments = @post.comments.recent.limit(10)
     @comment = Comment.new
