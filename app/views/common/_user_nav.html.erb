@@ -1,6 +1,10 @@
 <ul class="nav pills pull-right">
-
     <li>
+      <div style="padding: 4px 5px">
+      <%= link_to "posts/feed.rss" do %><button class="btn btn-mini btn-primary" type="button">RSS</button><% end %>
+      </div>
+    </li>
+    <li> 
       <div class="social"> <%=  fb_like(Setting.domain) %>  </div>
     </li>
 

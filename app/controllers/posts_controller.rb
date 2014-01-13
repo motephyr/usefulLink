@@ -51,6 +51,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def feed
+    @posts = Post.all(:select => "title, id, description, created_at", :order => "created_at DESC", :limit => 20) 
+
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false } #index.rss.builder
+    end
+  end
+
   def post_params
     params.require(:post).permit(:url)
   end

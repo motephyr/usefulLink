@@ -4,6 +4,7 @@
   <%= render_page_title %> 
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= auto_discovery_link_tag(:rss, {action: "feed",controller: "posts"}, {title: "RSS"})  %>
   <%= yield :stylesheets %>
 </head>
 <%= render_body_tag %>
@@ -14,6 +15,7 @@
 	  <%= yield %>
 	</div>
   </div>
+  <%= render :partial => "common/facebook_js" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= yield :javascripts %>
 </body>
