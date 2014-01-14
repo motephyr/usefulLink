@@ -3,6 +3,7 @@
  ✔ 使用者可以使用 Facebook 登入 https://github.com/xdite/auto-facebook @done (14-01-05 16:36)
 發表Link:
  ✔ 使用者可以填入網址，網站自動抓標題和簡介 http://embed.ly/docs/tutorials/jquery_preview @done (14-01-09 19:05)
+    ☐ 程式優化
  ✔ 使用者可以在每則網址下面留言 https://github.com/jackdempsey/acts_as_commentable @done (14-01-05 16:44)
  可以在有人留言時，就收到留言更新 http://mailgun.com:
  ✔ 作者 @done (14-01-11 03:43)

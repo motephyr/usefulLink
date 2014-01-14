@@ -8,7 +8,7 @@
       <%= image_tag @post.thumbnail_url,  {height: 100,width:100}  %>
     </div>
     <div class="span10">
-      <h5><%= link_to(@post.title,'http://'+@post.url) %></h5>
+      <h5><%= link_to(@post.title,@post.url) %></h5>
       <p>
         <%=@post.description %>
       </p>
