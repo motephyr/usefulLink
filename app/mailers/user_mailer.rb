@@ -1,8 +1,14 @@
 class UserMailer < ActionMailer::Base
   default from: "from@example.com"
 
-  def confirm(email,content)
-    @message = content
-    mail to: email , subject: "留言"
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.user_mailer.confirm.subject
+  #
+  def confirm
+    @greeting = "Hi"
+
+    mail to: "to@example.org"
   end
 end

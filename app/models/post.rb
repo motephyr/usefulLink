@@ -6,8 +6,9 @@ class Post < ActiveRecord::Base
   has_many :categories, through: :post_categories
 
   scope :recent, order("id DESC")
+  scope :hot, order("click_count DESC")
 
-  after_create :update_info
+  after_create :update_info 
 
   def update_info
     update_from_embedly

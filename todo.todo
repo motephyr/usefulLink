@@ -6,13 +6,13 @@
     ☐ 程式優化
  ✔ 使用者可以在每則網址下面留言 https://github.com/jackdempsey/acts_as_commentable @done (14-01-05 16:44)
  可以在有人留言時，就收到留言更新 http://mailgun.com:
- ✔ 作者 @done (14-01-11 03:43)
+ ✔ 作者 @done (14-01-11 03o:43)
  ✔ 討論者 @done (14-01-12 00:28)
     ☐ 程式優化
 RSS:
  ✔ 使用者可以訂閱 RSS http://stackoverflow.com/questions/3951235/how-do-i-make-an-rss-atom-feed-in-rails-3 @done (14-01-13 21:46)
 Link 分類:
- ✔ Link 必須被分類 : Gem / 新聞 / 教學 / 討論 @done (14-01-13 00:51)
+ ☐ Link 必須被分類 : Gem / 新聞 / 教學 / 討論
    ☐ 程式優化
 使用者資訊:
  ☐ 使用者可以更新自己個人資訊
@@ -31,3 +31,5 @@ Deploy:
  ☐ .gitignore對於database.yml和secret_token.rb的處理
  ✔ 使用postgresql做資料庫 @done (14-01-05 16:46)
  ✔ 紀綠 acts_as_commentable的使用方式 @done (14-01-05 21:52)
+ ☐ ajax reload
+ ☐ user認證信

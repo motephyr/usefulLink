@@ -1,0 +1,21 @@
+本週快訊
+
+<table class="table">
+  <tr>
+    <th>標題<th>
+    <th>描述<th>
+    <th>類別<th>
+    <th>作者<th>
+  </tr>
+<% @posts.each do |post| %>
+  <tr>
+    <th><%= link_to(post.title, post_path(post)) %><th>
+    <th><%= post.description %><th>
+    <th><% post.categories.each do |c|  %> 
+          <%=c.name %>
+        <% end %>
+    <th>
+    <th><%= gravatar_image_tag(post.author.email.gsub('spam', 'mdeering'), :alt => post.author.name,:gravatar => {:size =>15})  %><%= post.author.name %><th>
+  </tr>
+<% end %>
+</table>

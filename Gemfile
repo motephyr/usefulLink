@@ -13,6 +13,7 @@ gem "auto-facebook", "0.42"
 gem "pg"
 gem "embedly"
 gem "gravatar_image_tag"
+gem "whenever", :require => false
 
 group :production do
   gem 'rails_12factor'
@@ -30,6 +31,8 @@ group :development do
   gem "powder"
   gem "pry-nav"
   gem "pry-remote"
+
+  gem "letter_opener"
 end
 
 group :test do

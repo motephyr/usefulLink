@@ -2,33 +2,33 @@ class PostsController < ApplicationController
   before_action :login_required, :only => [:new, :create, :edit,:update,:destroy,:create_comment]
 
   def index
-  	@page_title = "首頁"
-  	@posts = Post.all
+    @page_title = "首頁"
+    @posts = Post.all.recent.limit(10)
   end
 
   def new
-  	@post = Post.new
+    @post = Post.new
   end
 
   def create
-  	@post = Post.new(post_params)
-  	@post.author = current_user
+    @post = Post.new(post_params)
+    @post.author = current_user
 
     #設定類別
     c = Category.where( :name => params[:category])
     @post.categories << c
 
-  	if @post.save
-        
-  		redirect_to posts_path
-  	else
-  		render :new
-  	end
+    if @post.save
+
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   def show
-  	@post = Post.find(params[:id])
-    
+    @post = Post.find(params[:id])
+
     #點擊數+1
     Post.increment_counter(:click_count, params[:id])
 
@@ -46,16 +46,16 @@ class PostsController < ApplicationController
       emails_add_posts = emails + [@post.author.email]
       uniq_emails = emails_add_posts.uniq{|x| x}
       uniq_emails_delete_self = uniq_emails - [comment.author.email]
-      
-      UserMailer.confirm(uniq_emails_delete_self, comment.comment).deliver
+
+      PostMailer.sendmessage(uniq_emails_delete_self,@post, comment.comment).deliver
       redirect_to post_path(@post)
-    else 
-       render :action => :show
+    else
+      render :action => :show
     end
   end
 
   def feed
-    @posts = Post.all(:select => "title, id, description, created_at", :order => "created_at DESC", :limit => 20) 
+    @posts = Post.all(:select => "title, id, description, created_at", :order => "created_at DESC", :limit => 20)
 
     respond_to do |format|
       format.html
