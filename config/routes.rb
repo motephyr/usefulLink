@@ -2,8 +2,17 @@ RailsUsefulLink::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   post "/posts/:id/comments/create" => "posts#create_comment"
-  get "/posts/feed" => "posts#feed"
-  resources :posts
+  
+  resources :posts do
+    collection do
+      get 'gem'
+      get 'news'
+      get 'discuss'
+      get 'teach'
+      get 'feed'
+    end
+  end
+  
   resources :demos
 
 

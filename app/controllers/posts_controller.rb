@@ -6,6 +6,26 @@ class PostsController < ApplicationController
     @posts = Post.all.recent.limit(10)
   end
 
+  def gem
+    @posts = Post.joins( :categories ).where("categories.name = 'Gem' ")
+    render :index
+  end
+
+  def news
+    @posts = Post.joins( :categories ).where("categories.name = '新聞' ")
+    render :index
+  end
+
+  def discuss
+    @posts = Post.joins( :categories ).where("categories.name = '討論' ")
+    render :index
+  end
+
+  def teach
+    @posts = Post.joins( :categories ).where("categories.name = '教學' ")
+    render :index
+  end
+
   def new
     @post = Post.new
   end
