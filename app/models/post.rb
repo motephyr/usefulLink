@@ -34,4 +34,8 @@ class Post < ActiveRecord::Base
 
     link.save
   end
+
+  def editable_by?(user)
+    user && user == author
+  end
 end

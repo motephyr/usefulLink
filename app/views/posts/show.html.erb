@@ -1,18 +1,21 @@
-<div class="pull-right">
-<%= link_to('back',posts_path, :class => "btn btn-large btn-info") %>
+<div class="row">
+  <div class="pull-right">
+    <%= link_to('back',posts_path, :class => "btn btn-large btn-info") %>
+  </div>
 </div>
 
-<div>
-  <div class="row">
-    <div class="span2">
-      <%= image_tag @post.thumbnail_url,  {height: 100,width:100}  %>
-    </div>
-    <div class="span10">
-      <h5><%= link_to(@post.title,@post.url) %></h5>
-      <p>
-        <%=@post.description %>
-      </p>
+<div class="row">
+  <div class="span2">
+    <%= image_tag @post.thumbnail_url,  {height: 100,width:100}  %>
   </div>
+  <div class="span10"> 
+      <% @post.categories.each do |c|  %> 
+        <div class="btn btn-mini btn-success"><%=c.name %></div>
+      <% end %>
+    <h5><%= link_to(@post.title,@post.url) %></h5>
+    <p>
+      <%=@post.description %>
+    </p>
   </div>
 </div>
 
@@ -25,12 +28,12 @@
   </div>
   <hr></hr>
   <% @post.comments.each do |comment| %>
-    <table>
-      <tr><%= comment.author.email %> 表示：</tr>
-      <td>
-        <%= comment.comment %>
-      </td>
-    </table>
+  <table>
+    <tr><%= comment.author.email %> 表示：</tr>
+    <td>
+      <%= comment.comment %>
+    </td>
+  </table>
   <% end %>
   <div>
     <%= form_for(@comment,:url => post_path(@post)+'/comments/create') do |f|  %>

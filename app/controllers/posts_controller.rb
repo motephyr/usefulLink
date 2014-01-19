@@ -30,6 +30,24 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show
+    @post = Post.find(params[:id])
+
+    #點擊數+1
+    Post.increment_counter(:click_count, params[:id])
+
+    comments = @post.comments.recent.limit(10)
+    @comment = Comment.new
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+
+    @post.destroy
+
+    redirect_to posts_path
+  end
+
   def create
     @post = Post.new(post_params)
     @post.author = current_user
@@ -44,16 +62,6 @@ class PostsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @post = Post.find(params[:id])
-
-    #點擊數+1
-    Post.increment_counter(:click_count, params[:id])
-
-    comments = @post.comments.recent.limit(10)
-    @comment = Comment.new
   end
 
   def create_comment
