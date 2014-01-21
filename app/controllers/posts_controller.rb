@@ -49,8 +49,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.author = current_user
+    @post = current_user.posts.build(post_params)
 
     #設定類別
     c = Category.where( :name => params[:category])
@@ -68,6 +67,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     comment = @post.comments.create(comment_params)
     comment.author = current_user
+    
     if comment.save
       #取得所有人的email 去掉重覆的和自已的
       emails = @post.comments.map{ |x| x.author.email}

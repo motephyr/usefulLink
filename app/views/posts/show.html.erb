@@ -9,9 +9,9 @@
     <%= image_tag @post.thumbnail_url,  {height: 100,width:100}  %>
   </div>
   <div class="span10"> 
-      <% @post.categories.each do |c|  %> 
-        <div class="btn btn-mini btn-success"><%=c.name %></div>
-      <% end %>
+    <% @post.categories.each do |c|  %> 
+    <div class="btn btn-mini btn-success"><%=c.name %></div>
+    <% end %>
     <h5><%= link_to(@post.title,@post.url) %></h5>
     <p>
       <%=@post.description %>
@@ -19,7 +19,6 @@
   </div>
 </div>
 
-<h2 align="center">推薦原因</h2>
 <div>
   <hr></hr>
   
@@ -27,14 +26,20 @@
     <h4>推文留言</h4>
   </div>
   <hr></hr>
-  <% @post.comments.each do |comment| %>
-  <table>
-    <tr><%= comment.author.email %> 表示：</tr>
-    <td>
-      <%= comment.comment %>
-    </td>
+  <table class="table">
+    <tbody>
+      <% @post.comments.each do |comment| %>
+      <tr>
+        <td>
+          <span clas="author"> 
+            <strong> 留言者 : <%= comment.author.name %> </strong> 
+          </span>
+          <p> <%= comment.comment %></p> 
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
-  <% end %>
   <div>
     <%= form_for(@comment,:url => post_path(@post)+'/comments/create') do |f|  %>
     <%= f.text_area :comment %>
