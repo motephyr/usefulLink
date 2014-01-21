@@ -8,13 +8,21 @@ $(function() {
       $('[name="commit"]').val('儲存資料');
     })
 
-  $('[name="commit"]').on('click', function(){
+  function preview_website(){
     if($('.selector-wrapper').html() != ''){
       return true;
     }else{
       return false;
     }
+  }
+
+  $('[name="commit"]').on('click', function(){
+    preview_website();
   });
+
+  $('[name="commit"]').keypress(function(){
+    preview_website();
+  })
 
   $('#preview_form').on('submit', function(){
     // Close the selector

@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   before_action :login_required, :only => [:new, :create, :edit,:update,:destroy,:create_comment]
 
+  before_action :url_check_http, :only => [:create]
+  before_action :url_check_the_same_link, :only => [:create]
+
   def index
     @page_title = "首頁"
     @posts = Post.all.recent.limit(10)
@@ -67,7 +70,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     comment = @post.comments.create(comment_params)
     comment.author = current_user
-    
+
     if comment.save
       #取得所有人的email 去掉重覆的和自已的
       emails = @post.comments.map{ |x| x.author.email}
@@ -78,7 +81,7 @@ class PostsController < ApplicationController
       PostMailer.sendmessage(uniq_emails_delete_self,@post, comment.comment).deliver
       redirect_to post_path(@post)
     else
-      render :action => :show
+      render :show
     end
   end
 
@@ -91,11 +94,28 @@ class PostsController < ApplicationController
     end
   end
 
+  private
   def post_params
     params.require(:post).permit(:url)
   end
 
   def comment_params
     params.require(:comment).permit(:comment)
+  end
+
+  def url_check_http
+    url = params[:post][:url]
+    if !(url.include?("http://") || url.include?("https://"))
+      flash[:warning] = "連結請加入http:// or https://"
+      redirect_to new_post_path
+    end
+  end
+
+  def url_check_the_same_link
+    url = params[:post][:url]
+    if !Post.where(:url => url ).empty?
+      flash[:warning] = "已有重複的連結"
+      redirect_to new_post_path
+    end
   end
 end
