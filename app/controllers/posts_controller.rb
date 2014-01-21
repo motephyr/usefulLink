@@ -26,7 +26,11 @@ class PostsController < ApplicationController
 
   def teach
     @posts = Post.joins( :categories ).where("categories.name = '教學' ")
-    render :index
+    
+    respond_to do |format|
+      format.html { render :index } # show.html.erb
+      format.json { render :json => @posts.to_json }
+    end
   end
 
   def new
