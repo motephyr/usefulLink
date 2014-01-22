@@ -87,14 +87,11 @@ class PostsController < ApplicationController
     comment.author = current_user
 
     if comment.save
-      #取得所有人的email 去掉重覆的和自已的
-      emails = @post.comments.map{ |x| x.author.email}
-      emails_add_posts = emails + [@post.author.email]
-      uniq_emails = emails_add_posts.uniq{|x| x}
-      uniq_emails_delete_self = uniq_emails - [comment.author.email]
-
-      #PostMaileService.new()
-      PostMailer.sendmessage(uniq_emails_delete_self,@post, comment.comment).deliver
+      
+      post_mailer_service = PostMailerService.new()
+      email_list = post_mailer_service.get_must_send_emails_list(@post,comment)
+      
+      PostMailer.sendmessage(email_list,@post, comment.comment).deliver
       redirect_to post_path(@post)
     else
       render :show
