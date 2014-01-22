@@ -1,9 +1,29 @@
-== 讀我
+# usefullink.herokuapp.com
 
-專案名稱： Rails新手村網站
+Rails新手村網站
 
-主旨：收集有用的 Link(maybe java,linux....因為這個功課有人進度比較快:p)
+## Tooo
 
-ToDo移到了
-https://github.com/motephyr/usefulLink/blob/master/todo.todo
+* https://github.com/motephyr/usefulLink/blob/master/todo.todo
 
+## Notice
+
+* 要讓這個站在你的本機上順利運作，記得下
+```bundle
+rake db:create:all
+rake db:migrate
+rake db:seed
+```
+
+## Development environment 
+
+* Ruby 2.0.0
+* Bundler
+
+## License
+
+* The code is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
+
+* 如有任何疑問可以以下方式連絡我
+* faceboook: https://www.facebook.com/yijuwu
+* Email:     motephyr@gmail.com 
