@@ -5,31 +5,42 @@ class PostsController < ApplicationController
   before_action :url_check_the_same_link, :only => [:create]
 
   def index
+    @posts = Post.recent.limit(10)
+    # TODO
     @page_title = "首頁"
-    @posts = Post.all.recent.limit(10)
   end
 
   def gem
-    @posts = Post.joins( :categories ).where("categories.name = 'Gem' ")
+    #category = Category.where(:name => "Gem")
+    @posts = Post.joins( :categories ).where(:categories => {:name => "Gem"})
     render :index
   end
 
   def news
-    @posts = Post.joins( :categories ).where("categories.name = '新聞' ")
+    @posts = Post.joins( :categories ).where(:categories => {:name => "新聞"})
     render :index
   end
 
   def discuss
-    @posts = Post.joins( :categories ).where("categories.name = '討論' ")
+    @posts = Post.joins( :categories ).where(:categories => {:name => "討論"})
     render :index
   end
 
   def teach
-    @posts = Post.joins( :categories ).where("categories.name = '教學' ")
+    @posts = Post.joins( :categories ).where(:categories => {:name => "教學"})
     
     respond_to do |format|
       format.html { render :index } # show.html.erb
       format.json { render :json => @posts.to_json }
+    end
+  end
+
+  def ajax
+    @page_title = "首頁"
+    @posts = Post.recent.limit(10)
+    respond_to do |format|
+      format.html 
+      format.js
     end
   end
 
@@ -82,6 +93,7 @@ class PostsController < ApplicationController
       uniq_emails = emails_add_posts.uniq{|x| x}
       uniq_emails_delete_self = uniq_emails - [comment.author.email]
 
+      #PostMaileService.new()
       PostMailer.sendmessage(uniq_emails_delete_self,@post, comment.comment).deliver
       redirect_to post_path(@post)
     else
@@ -99,6 +111,7 @@ class PostsController < ApplicationController
   end
 
   private
+  # TODO
   def post_params
     params.require(:post).permit(:url)
   end

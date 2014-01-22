@@ -10,6 +10,7 @@ RailsUsefulLink::Application.routes.draw do
       get 'discuss'
       get 'teach'
       get 'feed'
+      get 'ajax'
     end
   end
   

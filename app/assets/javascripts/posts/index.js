@@ -8,4 +8,11 @@ $(function() {
       $('#content').html(json);
     })
   })
+
+  $('#ajax_page').click(function(){
+    $.ajax({
+      url: '/posts/ajax',
+      dataType:'script',
+    })
+  })
 });
