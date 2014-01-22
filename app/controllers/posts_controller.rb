@@ -88,10 +88,8 @@ class PostsController < ApplicationController
 
     if comment.save
       
-      post_mailer_service = PostMailerService.new()
-      email_list = post_mailer_service.get_must_send_emails_list(@post,comment)
-      
-      PostMailer.sendmessage(email_list,@post, comment.comment).deliver
+      PostMailerService.new().send_email_to_other_people(@post,comment)
+
       redirect_to post_path(@post)
     else
       render :show
