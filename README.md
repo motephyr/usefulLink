@@ -9,6 +9,7 @@ Rails新手村網站
 ## Notice
 
 * 要讓這個站在你的本機上順利運作，記得下
+
 ```bash
 bundle
 rake db:create:all
