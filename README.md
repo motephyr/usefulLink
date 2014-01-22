@@ -2,10 +2,51 @@
 
 Rails新手村網站
 
-## Tooo
+## Todo
 
-* https://github.com/motephyr/usefulLink/blob/master/todo.todo
-
+基本功能:
+ ✔ 使用者可以登入 / 登出 @done (14-01-05 16:36)
+ ✔ 使用者可以使用 Facebook 登入 https://github.com/xdite/auto-facebook @done (14-01-05 16:36)
+發表Link:
+ ✔ 使用者可以填入網址，網站自動抓標題和簡介 http://embed.ly/docs/tutorials/jquery_preview @done (14-01-09 19:05)
+    ✔ 合理化運作流程 @done (14-01-22 23:07)
+ ✔ 使用者可以在每則網址下面留言 https://github.com/jackdempsey/acts_as_commentable @done (14-01-05 16:44)
+ 可以在有人留言時，就收到留言更新 http://mailgun.com:
+ ✔ 作者 @done (14-01-11 03o:43)
+ ✔ 討論者 @done (14-01-12 00:28)
+    ✔ 程式整理至service層 @done (14-01-22 23:46)
+RSS:
+ ✔ 使用者可以訂閱 RSS http://stackoverflow.com/questions/3951235/how-do-i-make-an-rss-atom-feed-in-rails-3 @done (14-01-13 21:46)
+Link 分類:
+ ✔ Link 必須被分類 : Gem / 新聞 / 教學 / 討論 @done (14-01-18 01:08)
+   ✔ 修改了query語法 @done (14-01-22 23:11)
+使用者資訊:
+ ☐ 使用者可以更新自己個人資訊
+ ✔ 使用者可以更改密碼 @done (14-01-10 00:31)
+ ✔ 使用者可以放上自己 Github 網址 @done (14-01-10 21:07)
+ ✔ 使用者的圖像是使用 http://gravatar.com https://github.com/mdeering/gravatar_image_tag @done (14-01-11 02:23)
+訂閱電子報:
+ ✔ Link 必須紀錄點擊數 @done (14-01-13 22:01)
+ ✔ 每週自動整理點擊數高的連結寄給訂閱者 @done (14-01-17 01:38)
+   ☐ 應讓使用者自行選擇要不要訂閱
+   ☐ 佈署至heroku上 
+Deploy:
+ ✔ Deploy 上 Heroku @done (14-01-05 16:45)
+ ✔ 程式碼放上 Github @done (14-01-05 16:45)
+ 每週二晚上 Code Review
+額外做的事:
+ ☐ html,css處理
+ ☐ .gitignore對於database.yml和secret_token.rb的處理
+ ✔ 使用postgresql做資料庫 @done (14-01-05 16:46)
+ ✔ 紀綠 acts_as_commentable的使用方式 @done (14-01-05 21:52)
+ ✔ user忘記密碼的處理 @done (14-01-22 23:51)
+ ✔ ajax reload demo @done (14-01-22 23:06)
+   ☐ 紀綠 ajax reload使用方式 
+ ☐ 紀綠 rails service層的使用時機
+ ☐ 紀綠 rails 資料表關係 many to many的查詢方式
+ ☐ 資料驗證部分的程式處理
+ ☐ seo helper
+ 
 ## Notice
 
 * 要讓這個站在你的本機上順利運作，記得下
