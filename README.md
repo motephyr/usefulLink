@@ -26,6 +26,8 @@ rake db:seed
 
 * The code is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
-* 如有任何疑問可以以下方式連絡我
-* faceboook: https://www.facebook.com/yijuwu
-* Email:     motephyr@gmail.com 
+## 連絡方式
+
+* Faceboook: https://www.facebook.com/yijuwu
+* Email:     motephyr@gmail.com
+* Blog:      http://motephyr.github.io/   
