@@ -12,7 +12,7 @@ $(function() {
   $('#ajax_page').click(function(){
     $.ajax({
       url: '/posts/ajax',
-      dataType:'script',
+      dataType:'script'
     })
   })
 });
