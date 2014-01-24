@@ -14,6 +14,7 @@ gem "pg"
 gem "embedly"
 gem "gravatar_image_tag"
 gem "whenever", :require => false
+gem 'seo_helper', '~> 1.0'
 
 group :production do
   gem 'rails_12factor'
@@ -33,6 +34,7 @@ group :development do
   gem "pry-remote"
 
   gem "letter_opener"
+  gem 'meta_request'
 end
 
 group :test do
