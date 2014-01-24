@@ -22,4 +22,3 @@ module RailsUsefulLink
   end
 end
 
-SITE_NAME = "我的超連結" 

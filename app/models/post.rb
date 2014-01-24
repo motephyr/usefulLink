@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
   has_many :post_categories
   has_many :categories, through: :post_categories
 
+  validates :url,:presence =>true, :uniqueness => true,:format => URI::regexp(%w(http https))
+
   scope :recent, order("id DESC")
   scope :hot, order("click_count DESC")
 

@@ -1,15 +1,5 @@
 <%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited
-        this post from being saved:</h2>
-      <ul>
-        <% @post.errors.full_posts.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'common/error_messages', object: f.object %>
 
   <p>
   <%= f.label :網址 %>

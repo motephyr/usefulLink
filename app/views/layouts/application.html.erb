@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= render_page_title %>
+  <%= render_page_title_tag %>
   <%= render_page_description_meta_tag %>
   <%= render_page_keywords_meta_tag %>
+  <%= render_page_image_link_tag %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= auto_discovery_link_tag(:rss, "/posts/feed.rss", {title: "RSS"})  %>
   <%= yield :stylesheets %>
 </head>
@@ -19,7 +21,6 @@
     </div>
   </div>
   <%= render :partial => "common/facebook_js" %>
-  <%= javascript_include_tag "application" %>
   <%= yield :javascripts %>
 </body>
 </html>

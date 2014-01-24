@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
   before_action :login_required, :only => [:new, :create, :edit,:update,:destroy,:create_comment]
 
-  before_action :url_check_http, :only => [:create]
-  before_action :url_check_the_same_link, :only => [:create]
-
   def index
     @posts = Post.recent.limit(10)
-    # TODO
-    @page_title = "首頁"
+
+    set_page_title "連結列表"
+    set_page_description descriptions = @posts.map {|x| x.description}.join(",") # or @article.content.truncate(100)
+    set_page_keywords    titles = @posts.map {|x| x.title}.join(",")
   end
 
   def gem
@@ -36,7 +35,6 @@ class PostsController < ApplicationController
   end
 
   def ajax
-    @page_title = "首頁"
     @posts = Post.recent.limit(10)
     respond_to do |format|
       format.html 
@@ -50,6 +48,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    set_page_title       @post.title   # same as <title> tag
+    set_page_description @post.description # or @article.content.truncate(100)
+    set_page_keywords    category = @post.categories.map {|x| x.name}.join(",")    # or @article.keywords
 
     #點擊數+1
     Post.increment_counter(:click_count, params[:id])
@@ -115,19 +116,19 @@ class PostsController < ApplicationController
     params.require(:comment).permit(:comment)
   end
 
-  def url_check_http
-    url = params[:post][:url]
-    if !(url.include?("http://") || url.include?("https://"))
-      flash[:warning] = "連結請加入http:// or https://"
-      redirect_to new_post_path
-    end
-  end
+  # def url_check_http
+  #   url = params[:post][:url]
+  #   if !(url.include?("http://") || url.include?("https://"))
+  #     flash[:warning] = "連結請加入http:// or https://"
+  #     redirect_to new_post_path
+  #   end
+  # end
 
-  def url_check_the_same_link
-    url = params[:post][:url]
-    if !Post.where(:url => url ).empty?
-      flash[:warning] = "已有重複的連結"
-      redirect_to new_post_path
-    end
-  end
+  # def url_check_the_same_link
+  #   url = params[:post][:url]
+  #   if !Post.where(:url => url ).empty?
+  #     flash[:warning] = "已有重複的連結"
+  #     redirect_to new_post_path
+  #   end
+  # end
 end
