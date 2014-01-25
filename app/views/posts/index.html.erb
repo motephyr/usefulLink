@@ -9,9 +9,9 @@
        <%= link_to('新聞','/posts/news',:class => "btn btn-small btn-info" ) %>
        <%= link_to('教學','/posts/teach',:class => "btn btn-small btn-info") %>
        <%= link_to('討論','/posts/discuss',:class => "btn btn-small btn-info") %>
-       <span>
+       <span style="display:none">
          <%= link_to('remote page','/posts',:class => "btn btn-small btn-info",:remote => true, "data-type" => "script") %>
-         
+
          <a id="ajax_page" href="javascript:;" class="btn btn-small btn-info" >ajax page</a> 
          <a id="ajax_data" href="javascript:;" class="btn btn-small btn-info" >ajax data</a> 
          <%= link_to 'show 1', '/posts/1', :class => "btn btn-small btn-info", :remote => true, "data-type" => "script" %>
