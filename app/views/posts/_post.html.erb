@@ -1,4 +1,4 @@
-          <tr>
+        <%= content_tag_for(:tr, post) do %> 
             <th><%= link_to(post.title, post.url) %></th>
             <th><%= post.description %></th>
             <th><% post.categories.each do |c|  %> 
@@ -9,7 +9,7 @@
             <th>
               <%= link_to('內容', post_path(post) , :class => "btn btn-small btn-default") %>
               <% if current_user && post.editable_by?(current_user) %>
-              <%= link_to('刪除', post_path(post),:method => :delete ,:confirm=>"你確定要刪除嗎？" , :class => "btn btn-small btn-danger") %>
+              <%= link_to('刪除', post_path(post),:method => :delete,:remote => true, "data-type" => "script" ,:confirm=>"你確定要刪除嗎？" , :class => "btn btn-small btn-danger") %>
               <% end %>
             </th>
-          </tr>
+        <% end %>
