@@ -15,6 +15,7 @@ gem "embedly"
 gem "gravatar_image_tag"
 gem "whenever", :require => false
 gem 'seo_helper', '~> 1.0'
+gem "kaminari"
 
 group :production do
   gem 'rails_12factor'

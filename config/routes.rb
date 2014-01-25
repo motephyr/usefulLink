@@ -10,7 +10,8 @@ RailsUsefulLink::Application.routes.draw do
       get 'discuss'
       get 'teach'
       get 'feed'
-      get 'ajax'
+      post 'ajax_create'
+      delete 'ajax_destory'
     end
   end
   

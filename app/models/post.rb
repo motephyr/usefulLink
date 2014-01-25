@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   validates :url,:presence =>true, :uniqueness => true,:format => URI::regexp(%w(http https))
 
-  scope :recent, order("id DESC")
+  scope :recent, order("created_at DESC")
   scope :hot, order("click_count DESC")
 
   after_create :update_info 

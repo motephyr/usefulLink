@@ -2,44 +2,38 @@ class PostsController < ApplicationController
   before_action :login_required, :only => [:new, :create, :edit,:update,:destroy,:create_comment]
 
   def index
-    @posts = Post.recent.limit(10)
+    @posts = Post.recent.page(params[:page]).per(5)
 
     set_page_title "連結列表"
     set_page_description descriptions = @posts.map {|x| x.description}.join(",") # or @article.content.truncate(100)
     set_page_keywords    titles = @posts.map {|x| x.title}.join(",")
+
+    respond_to do |format|
+      format.html
+      format.js
+      format.json { render :json => @posts }
+    end
   end
 
   def gem
     #category = Category.where(:name => "Gem")
-    @posts = Post.joins( :categories ).where(:categories => {:name => "Gem"})
+    @posts = Post.joins( :categories ).where(:categories => {:name => "Gem"}).page(params[:page]).per(5)
     render :index
   end
 
   def news
-    @posts = Post.joins( :categories ).where(:categories => {:name => "新聞"})
+    @posts = Post.joins( :categories ).where(:categories => {:name => "新聞"}).page(params[:page]).per(5)
     render :index
   end
 
   def discuss
-    @posts = Post.joins( :categories ).where(:categories => {:name => "討論"})
+    @posts = Post.joins( :categories ).where(:categories => {:name => "討論"}).page(params[:page]).per(5)
     render :index
   end
 
   def teach
-    @posts = Post.joins( :categories ).where(:categories => {:name => "教學"})
-    
-    respond_to do |format|
-      format.html { render :index } # show.html.erb
-      format.json { render :json => @posts.to_json }
-    end
-  end
-
-  def ajax
-    @posts = Post.recent.limit(10)
-    respond_to do |format|
-      format.html 
-      format.js
-    end
+    @posts = Post.joins( :categories ).where(:categories => {:name => "教學"}).page(params[:page]).per(5)
+    render :index
   end
 
   def new
@@ -55,16 +49,13 @@ class PostsController < ApplicationController
     #點擊數+1
     Post.increment_counter(:click_count, params[:id])
 
-    comments = @post.comments.recent.limit(10)
     @comment = Comment.new
-  end
 
-  def destroy
-    @post = Post.find(params[:id])
-
-    @post.destroy
-
-    redirect_to posts_path
+    respond_to do |format|
+      format.html
+      format.js
+      format.json { render :json => @post }
+    end
   end
 
   def create
@@ -74,11 +65,27 @@ class PostsController < ApplicationController
     c = Category.where( :name => params[:category])
     @post.categories << c
 
-    if @post.save
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to posts_path }
+        format.js
+        format.json { head :ok }
+      else
+        format.html { render :new }
+        format.js
+        format.json { head :ok }
+      end
+    end
+  end
 
-      redirect_to posts_path
-    else
-      render :new
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy
+
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.js
+      format.json { head :ok }
     end
   end
 
@@ -88,7 +95,7 @@ class PostsController < ApplicationController
     comment.author = current_user
 
     if comment.save
-      
+
       PostMailerService.new().send_email_to_other_people(@post,comment)
 
       redirect_to post_path(@post)
@@ -106,8 +113,9 @@ class PostsController < ApplicationController
     end
   end
 
+
+
   private
-  # TODO
   def post_params
     params.require(:post).permit(:url)
   end

@@ -1,7 +1,7 @@
 $(function() {
   $('#ajax_data').click(function(){
     $.ajax({
-      url: '/posts/teach.json',
+      url: '/posts.json',
       dataType:'json',
     }).success(function(data) {
       var json = JSON.stringify(data);
@@ -11,7 +11,7 @@ $(function() {
 
   $('#ajax_page').click(function(){
     $.ajax({
-      url: '/posts/ajax',
+      url: '/posts',
       dataType:'script'
     })
   })

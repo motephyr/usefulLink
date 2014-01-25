@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="span2">
+    <%= image_tag @post.thumbnail_url,  {height: 100,width:100}  %>
+  </div>
+  <div class="span10"> 
+    <% @post.categories.each do |c|  %> 
+    <div class="btn btn-mini btn-success"><%=c.name %></div>
+    <% end %>
+    <h5><%= link_to(@post.title,@post.url) %></h5>
+    <p>
+      <%=@post.description %>
+    </p>
+  </div>
+</div>
+
+<div>
+  <hr></hr>
+  
+  <div>
+    <h4>推文留言</h4>
+  </div>
+  <table class="table">
+    <tbody>
+      <% @post.comments.each do |comment| %>
+      <tr>
+        <td>
+          <span clas="author"> 
+            <strong> 留言者 : <%= comment.author.name %> </strong> 
+          </span>
+          <p> <%= comment.comment %></p> 
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div> 
+
