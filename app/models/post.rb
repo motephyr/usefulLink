@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id            :integer          not null, primary key
+#  title         :text
+#  url           :string(255)
+#  user_id       :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  description   :text
+#  thumbnail_url :string(255)
+#  favicon_url   :string(255)
+#  provider_name :string(255)
+#  provider_url  :string(255)
+#  click_count   :integer
+#
+
 class Post < ActiveRecord::Base
 	acts_as_commentable
 	belongs_to :author, :class_name => "User", :foreign_key => :user_id
