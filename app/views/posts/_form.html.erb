@@ -1,15 +1,11 @@
-<%= form_for @post do |f| %>
+<%= simple_form_for @post do |f| %>
   <%= render 'common/error_messages', object: f.object %>
 
   <p>
-  <%= f.label :網址 %>
-  <%= f.text_field :url %>
-  <%= f.label :標題 %>
-  <%= f.text_field :title %>
-  <%= f.label :內容 %>
-  <%= f.text_area :description %>
-  <%= f.label :類別 %>
-  <%= select_tag(:category, options_for_select(['Gem','新聞','教學','討論'])) %>
+  <%= f.input :url ,label: '網址' %>
+  <%= f.input :title ,label: '標題' %>
+  <%= f.input :description ,label: '內容' %>
+  <%= f.input :categories ,label: '類別',collection:["Gem","新聞","教學","討論"], prompt: "選擇類別" %>
 
   <%= f.submit "送出" %>
   </p>

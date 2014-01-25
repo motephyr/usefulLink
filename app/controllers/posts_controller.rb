@@ -62,8 +62,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     #設定類別
-    c = Category.where( :name => params[:category])
-    @post.categories << c
+    params[:post][:categories].each {|x|
+      c = Category.where( :name => x)
+      @post.categories << c
+    }
 
     respond_to do |format|
       if @post.save
@@ -117,7 +119,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:url)
+    params.require(:post).permit(:url,:categories)
   end
 
   def comment_params

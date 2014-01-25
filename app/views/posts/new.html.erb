@@ -2,12 +2,11 @@
 
 <%#= render 'form' %>
 
-<%= form_for @post,as: :post,html: {  id: "preview_form" } do |f| %>
+<%= simple_form_for @post,as: :post,html: {  id: "preview_form" } do |f| %>
   <%= render 'common/error_messages', object: f.object %>
 
   <p>
-  <%= f.label :類別 %>
-  <%= select_tag(:category, options_for_select(['Gem','新聞','教學','討論'])) %>
+  <%= f.input :categories ,label: '類別',collection:["Gem","新聞","教學","討論"], as: :check_boxes %>
   </p>
   <input id="id_url" type="text" name="post[url]"/>
   <%= f.submit "預覽" %>

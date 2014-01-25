@@ -40,9 +40,9 @@
     </tbody>
   </table>
   <div>
-    <%= form_for(@comment,:url => post_path(@post)+'/comments/create') do |f|  %>
-    <%= f.text_area :comment %>
-    <%= f.submit "留言" %>
+    <%= simple_form_for(@comment,:url => post_path(@post)+'/comments/create') do |f|  %>
+    <%= f.input :comment , label:'留言' %>
+    <%= f.submit "送出" %>
     <% end %>
   </div>
 </div> 
