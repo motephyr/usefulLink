@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RailsUsefulLink::Application.config.secret_key_base = '7ab148a821ef651678105048552f246848efa2add3a23ece510085a183f4044475258dd5d5ce1fb3bf28c871b1d924b4d9d48f38138726ec1c8d8d2c053d9f25'
+RailsUsefulLink::Application.config.secret_key_base = 'abc'
