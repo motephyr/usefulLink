@@ -29,7 +29,7 @@ Deploy:
  ✔ 程式碼放上 Github @done (14-01-05 16:45)
  每週二晚上 Code Review
 額外做的事:
- ☐ html,css處理
+ ✔ html,css處理 @done (14-01-28 01:44)
  ☐ .gitignore對於database.yml和secret_token.rb的處理
  ✔ 使用postgresql做資料庫 @done (14-01-05 16:46)
  ✔ 紀綠 acts_as_commentable的使用方式 @done (14-01-05 21:52)
@@ -40,4 +40,7 @@ Deploy:
  ☐ 紀綠 rails 資料表關係 many to many的查詢方式
  ✔ 資料驗證部分的程式處理 @done (14-01-25 02:32)
  ✔ seo_helper @done (14-01-25 00:58)
+ ☐ 個人頁
+ ☐ 設定一個精選頁面;為每個人設定自已的頁面
+ ☐ 可修改類別
  
