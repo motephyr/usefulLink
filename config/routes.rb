@@ -12,12 +12,13 @@ RailsUsefulLink::Application.routes.draw do
       get 'feed'
     end
   end
-  
-  resources :demos
 
   namespace :account do 
     resources :posts 
   end
+
+  resources :demos
+  resources :demos1
 
 
   # The priority is based upon order of creation: first created -> highest priority.
