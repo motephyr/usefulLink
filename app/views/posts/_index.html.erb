@@ -9,7 +9,7 @@
            </tr>
          </thead>
          <tbody id="content">
-          <%= render @posts %> 
+          <%= render :partial => 'posts/post',:collection => @posts %>
         </tbody>
       </table>
       <%= paginate @posts,:remote => true %>

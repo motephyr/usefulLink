@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :login_required, :only => [:new, :create, :edit,:update,:destroy,:create_comment]
 
   def index
-    @posts = Post.recent.page(params[:page]).per(5)
+    @posts = Post.recent.page(params[:page]).per(10)
 
     set_page_title "連結列表"
     set_page_description descriptions = @posts.map {|x| x.description}.join(",") # or @article.content.truncate(100)
@@ -17,22 +17,22 @@ class PostsController < ApplicationController
 
   def gem
     #category = Category.where(:name => "Gem")
-    @posts = Post.joins( :categories ).where(:categories => {:name => "Gem"}).page(params[:page]).per(5)
+    @posts = Post.joins( :categories ).where(:categories => {:name => "Gem"}).page(params[:page]).per(10)
     render :index
   end
 
   def news
-    @posts = Post.joins( :categories ).where(:categories => {:name => "新聞"}).page(params[:page]).per(5)
+    @posts = Post.joins( :categories ).where(:categories => {:name => "新聞"}).page(params[:page]).per(10)
     render :index
   end
 
   def discuss
-    @posts = Post.joins( :categories ).where(:categories => {:name => "討論"}).page(params[:page]).per(5)
+    @posts = Post.joins( :categories ).where(:categories => {:name => "討論"}).page(params[:page]).per(10)
     render :index
   end
 
   def teach
-    @posts = Post.joins( :categories ).where(:categories => {:name => "教學"}).page(params[:page]).per(5)
+    @posts = Post.joins( :categories ).where(:categories => {:name => "教學"}).page(params[:page]).per(10)
     render :index
   end
 
